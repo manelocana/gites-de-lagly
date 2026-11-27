@@ -1,0 +1,3649 @@
+
+/* =========================================
+   1. VARIABLES Y RESET
+========================================= */
+
+:root {
+    --green-dark: #263b32;
+    --green: #526b55;
+    --green-light: #75866a;
+    --cream: #f7f5ef;
+    --beige: #eae5d9;
+    --terracotta: #b8795b;
+    --white: #ffffff;
+    --text: #333b34;
+    --text-light: #777d75;
+
+    --font-title: 'Playfair Display', serif;
+    --font-body: 'DM Sans', sans-serif;
+
+    --container: 1180px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 74px;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text);
+    background: var(--cream);
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+.container {
+    width: min(90%, var(--container));
+    margin-inline: auto;
+}
+
+.section-padding {
+    padding: 70px 0;
+}
+
+.eyebrow {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    color: var(--green-light);
+    margin-bottom: 20px;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-title);
+    font-weight: 500;
+    line-height: 1.15;
+}
+
+h2 {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    color: var(--green-dark);
+}
+
+h2 em,
+h1 em {
+    font-weight: 400;
+    color: var(--terracotta);
+}
+
+
+/* =========================================
+   2. NAVBAR 
+========================================= */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(247, 245, 239, 0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(38, 59, 50, 0.08);
+}
+
+.navbar {
+    min-height: 74px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo img {
+    display: block;
+    width: 40px;
+    height: auto;
+    object-fit: contain;
+    padding-right: 10px;
+}
+
+.logo__icon {
+    width: 43px;
+    height: 43px;
+    display: grid;
+    place-items: center;
+    background: var(--green-dark);
+    color: var(--cream);
+    font-family: var(--font-title);
+    font-size: 1.4rem;
+    border-radius: 50%;
+}
+
+.logo__text {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-title);
+    font-size: 1.2rem;
+    color: var(--green-dark);
+    line-height: 1.2;
+}
+
+.logo__text small {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    letter-spacing: 1.6px;
+    margin-top: 5px;
+    color: var(--text-light);
+}
+
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 2px;
+    background: var(--green-dark);
+    transition: 0.2s;
+}
+
+.menu-toggle.is-active span:first-child {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.is-active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.is-active span:last-child {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+.nav-links {
+    position: absolute;
+    top: 74px;
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 12px 5% 25px;
+    background: var(--cream);
+    border-top: 1px solid var(--beige);
+    list-style: none;
+}
+
+.nav-links.is-open {
+    display: flex;
+}
+
+.nav-links li a {
+    display: block;
+    padding: 13px 0;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: var(--terracotta);
+}
+
+.nav-links .nav-contact {
+    background: var(--green-dark);
+    color: var(--white);
+    text-align: center;
+    margin-top: 10px;
+    padding: 13px;
+    border-radius: 3px;
+}
+
+
+/* =========================================
+   3. HERO 
+========================================= */
+
+.hero {
+    position: relative;
+    min-height: 650px;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(20, 35, 29, 0.82),
+            rgba(20, 35, 29, 0.38) 65%,
+            rgba(20, 35, 29, 0.12)
+        ),
+        url("../assets/images/hero.JPG")
+        60% center / cover no-repeat;
+}
+
+.hero__content {
+    position: relative;
+    z-index: 2;
+    padding-top: 20px;
+}
+
+.hero__eyebrow {
+    color: #e5d6bd;
+}
+
+.hero h1 {
+    font-size: clamp(3rem, 13vw, 4.5rem);
+    max-width: 850px;
+    letter-spacing: -1px;
+    margin-bottom: 28px;
+}
+
+.hero h1 em {
+    color: #e5c4a4;
+}
+
+.hero__content > p {
+    max-width: 480px;
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.86);
+}
+
+.hero__actions {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 38px;
+}
+
+.btn {
+    min-height: 52px;
+    padding: 0 25px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: 0.25s ease;
+}
+
+.btn span {
+    font-size: 1.1rem;
+}
+
+.btn--light {
+    background: var(--cream);
+    color: var(--green-dark);
+}
+
+.btn--light:hover {
+    background: var(--terracotta);
+    color: white;
+}
+
+.btn--dark {
+    background: var(--green-dark);
+    color: white;
+}
+
+.btn--dark:hover {
+    background: var(--terracotta);
+}
+
+.hero__link {
+    color: white;
+    font-size: 0.9rem;
+}
+
+.hero__bottom {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.53rem;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.8);
+}
+
+
+/* =========================================
+   4. INTRODUCTION 
+========================================= */
+
+.intro {
+    background: var(--cream);
+}
+
+.intro__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    align-items: center;
+}
+
+.intro__heading h2 {
+    font-size: clamp(2.6rem, 9vw, 4.2rem);
+}
+
+.intro__text p {
+    color: var(--text-light);
+    font-size: 1.2rem;
+    margin-bottom: 18px;
+}
+
+.text-link {
+    display: inline-block;
+    margin-top: 12px;
+    color: var(--green-dark);
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-bottom: 1px solid var(--terracotta);
+    padding-bottom: 5px;
+}
+
+
+/* =========================================
+   5. HEBERGEMENTS 
+========================================= */
+
+.accommodations {
+    background: #eeece4;
+}
+
+.section-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+.section-heading h2 {
+    max-width: 650px;
+}
+
+.section-heading > p {
+    max-width: 340px;
+    color: var(--text-light);
+    font-size: 1.2rem;
+}
+
+.accommodation-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+
+.accommodation-card--all {
+    width: 100%;
+    background: var(--cream);
+}
+
+.accommodation-card__image {
+    position: relative;
+    height: 260px;
+    background-size: cover;
+    background-position: center;
+}
+
+.accommodation-card__image--all {
+    background-image:
+        linear-gradient(transparent, rgba(0, 0, 0, 0.1)),
+        url("../assets/images/gites-index.jpg");
+}
+
+.image-tag {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: var(--cream);
+    padding: 8px 13px;
+    font-size: 0.7rem;
+    letter-spacing: 1.3px;
+    font-weight: 700;
+}
+
+.accommodation-card__content {
+    padding: 23px;
+}
+
+.card-topline {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    color: var(--green-light);
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.accommodation-card h3 {
+    color: var(--green-dark);
+    font-size: 2.1rem;
+    margin: 15px 0;
+}
+
+.accommodation-card__content > p {
+    max-width: 470px;
+    color: var(--text-light);
+    font-size: 1.2rem;
+}
+
+.card-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    padding: 20px 0;
+    margin-top: 12px;
+    border-bottom: 1px solid var(--beige);
+    font-size: 0.9rem;
+    color: var(--green);
+}
+
+.card-link {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    color: var(--green-dark);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+
+
+/* =========================================
+   6. ACTIVITES - MOBILE
+========================================= */
+
+.activities {
+    background: var(--green-dark);
+    color: white;
+}
+
+.activities .eyebrow {
+    color: #c5c6a9;
+}
+
+.activities h2 {
+    color: white;
+}
+
+.activities h2 em {
+    color: #d7b79a;
+}
+
+.activities__intro {
+    margin-bottom: 35px;
+}
+
+.activities__intro > p {
+    margin-top: 20px;
+    max-width: 480px;
+    color: rgba(255,255,255,0.65);
+    font-size: 1.2rem;
+}
+
+.activities-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+
+.activity-card {
+    min-width: 0;
+    color: white;
+}
+
+.activity-card__image {
+    position: relative;
+    height: 260px;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* Imagen de fondo: funciona tanto en móvil como en desktop */
+
+.activity-card__image::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.6s ease;
+}
+
+.activity-card__image--ferrata::before {
+    background-image: url("../assets/images/via-ferrata-index.jpg");
+}
+
+.activity-card__image--nature::before {
+    background-image: url("../assets/images/activites-nature-index.jpg");
+}
+
+.activity-card__image--heritage::before {
+    background-image: url("../assets/images/patrimonie-index.jpg");
+}
+
+.activity-card__content {
+    position: relative;
+    padding: 24px 0;
+}
+
+.activity-card__content > span:first-child {
+    color: #c5c6a9;
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+}
+
+.activity-card h3 {
+    font-size: 1.7rem;
+    margin: 10px 0;
+}
+
+.activity-card p {
+    color: rgba(255,255,255,0.65);
+    font-size: 1rem;
+    padding-right: 20px;
+}
+
+.activity-arrow {
+    display: inline-block;
+    margin-top: 15px;
+    color: #d7b79a;
+    font-size: 1.2rem;
+}
+
+
+/* =========================================
+   7. REGION 
+========================================= */
+
+.region {
+    background: var(--cream);
+}
+
+.region__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    align-items: center;
+}
+
+.region__image {
+    min-height: 370px;
+    position: relative;
+    background:
+        linear-gradient(transparent 45%, rgba(20,35,29,0.7)),
+        url("../assets/images/fenouilledes-index.jpg")
+        center / cover;
+}
+
+.region__image-label {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.region__image-label span {
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+}
+
+.region__image-label strong {
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    font-weight: 400;
+}
+
+.region__content h2 {
+    margin-bottom: 25px;
+}
+
+.region__content > p {
+    color: var(--text-light);
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+}
+
+
+/* =========================================
+   8. CONTACT
+========================================= */
+
+.contact-section {
+    background:
+        linear-gradient(rgba(31,49,39,0.88), rgba(31,49,39,0.88)),
+        url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1800&q=85")
+        center / cover;
+    text-align: center;
+    color: white;
+}
+
+.contact-section__inner {
+    max-width: 760px;
+    margin-inline: auto;
+}
+
+.contact-section .eyebrow {
+    color: #d5c6a9;
+}
+
+.contact-section h2 {
+    color: white;
+    font-size: clamp(3rem, 10vw, 5rem);
+}
+
+.contact-section h2 em {
+    color: #d7b79a;
+}
+
+.contact-section p {
+    max-width: 520px;
+    margin: 25px auto 35px;
+    color: rgba(255,255,255,0.75);
+}
+
+
+/* =========================================
+   9. FOOTER 
+========================================= */
+
+/* =========================
+   FOOTER - MOBILE
+========================= */
+
+.footer {
+    background: var(--green-dark);
+    color: var(--white);
+    padding: 60px 0 25px;
+}
+
+/* Estructura vertical */
+.footer__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+}
+
+/* Logo */
+.logo--footer .logo__icon {
+    background: var(--cream);
+    color: var(--green-dark);
+}
+
+.logo--footer .logo__text {
+    color: white;
+}
+
+.logo--footer .logo__text small {
+    color: rgba(255,255,255,0.55);
+}
+
+/* Marca */
+.footer__brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.footer__brand > p {
+    max-width: 300px;
+    margin-top: 20px;
+    color: rgba(255,255,255,0.55);
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+/* Columnas */
+.footer__column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    text-align: left;
+}
+
+.footer__column h4 {
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+}
+
+.footer__column p,
+.footer__column a {
+    font-size: 0.85rem;
+    line-height: 1.7;
+}
+
+.footer__column p {
+    color: rgba(255,255,255,0.6);
+}
+
+.footer__column a {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+}
+
+/* Contacto */
+.footer__contact {
+    align-items: flex-start;
+    text-align: left;
+}
+
+.footer__contact .footer__siret {
+    margin-top: 12px;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+}
+
+/* Parte inferior */
+.footer__bottom {
+    padding-top: 22px;
+    margin-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: rgba(255,255,255,0.45);
+    font-size: 0.75rem;
+}
+
+
+
+/* =========================================
+   10. PAGE GITES - MOBILE
+========================================= */
+
+/* HERO */
+
+.gites-hero {
+    position: relative;
+    min-height: 570px;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    background:
+        linear-gradient(
+            90deg,
+            rgba(20, 35, 29, 0.85),
+            rgba(20, 35, 29, 0.35)
+        ),
+        url("../assets/images/gites-hero.jpg") center / cover no-repeat;
+}
+
+.gites-hero__content {
+    position: relative;
+    z-index: 2;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.gites-hero .eyebrow {
+    color: #e5d6bd;
+}
+
+.gites-hero h1 {
+    max-width: 700px;
+    font-size: clamp(3rem, 12vw, 4.5rem);
+    margin-bottom: 25px;
+}
+
+.gites-hero h1 em {
+    color: #e5c4a4;
+}
+
+.gites-hero__content > p {
+    max-width: 460px;
+    color: rgba(255,255,255,0.85);
+    font-size: 1.05rem;
+    margin-bottom: 30px;
+}
+
+
+/* INTRODUCTION */
+
+.gites-intro {
+    text-align: center;
+}
+
+.gites-intro__inner {
+    max-width: 760px;
+    margin-inline: auto;
+}
+
+.gites-intro h2 {
+    margin-bottom: 25px;
+}
+
+.gites-intro p {
+    color: var(--text-light);
+    font-size: 1.05rem;
+    margin-bottom: 18px;
+}
+
+
+/* LISTE DES GITES */
+
+.gites-list {
+    background: #eeece4;
+}
+
+.gite-detail {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 35px;
+    margin-bottom: 85px;
+}
+
+.gite-detail:last-child {
+    margin-bottom: 0;
+}
+
+
+/* GALERIE */
+
+.gite-detail__gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.gite-detail__main-image {
+    position: relative;
+    min-height: 300px;
+    background:
+        linear-gradient(
+            0deg,
+            rgba(20,35,29,0.25),
+            transparent 50%
+        ),
+        url("../assets/images/gites-mimosa-1.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+/* Fotografías secundarias de Mimosa */
+#mimosa .photo-mimosa-2 {
+    background: url("../assets/images/gites-mimosa-2.jpg")
+        center / cover no-repeat;
+}
+
+#mimosa .photo-mimosa-3 {
+    background: url("../assets/images/gites-mimosa-3.jpg")
+        center / cover no-repeat;
+}
+
+#mimosa .photo-mimosa-4 {
+    background: url("../assets/images/gites-mimosa-4.jpg")
+        center / cover no-repeat;
+}
+
+#mimosa .photo-mimosa-5 {
+    background: url("../assets/images/gites-mimosa-5.jpg")
+        center / cover no-repeat;
+}
+
+#mimosa .photo-mimosa-6 {
+    background: url("../assets/images/gites-mimosa-6.jpg")
+        center / cover no-repeat;
+}
+
+#mimosa .photo-mimosa-7 {
+    background: url("../assets/images/gites-mimosa-7.jpg")
+        center / cover no-repeat;
+}
+
+#mimosa .photo-mimosa-8 {
+    background: url("../assets/images/gites-mimosa-8.jpg")
+        center / cover no-repeat;
+}
+
+
+.gite-detail__main-image--tilleul {
+    background-image:
+        linear-gradient(
+            0deg,
+            rgba(20,35,29,0.25),
+            transparent 50%
+        ),
+        url("../assets/images/gites-tilleul-1.jpg");
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+/* Fotografías secundarias de Tilleul */
+#tilleul .gite-detail__photo-placeholder:first-child {
+    background: url("../assets/images/gites-tilleul-2.jpg")
+        center / cover no-repeat;
+}
+
+#tilleul .gite-detail__photo-placeholder:last-child {
+    background: url("../assets/images/gites-tilleul-3.jpg")
+        center / cover no-repeat;
+}
+
+
+.gite-detail__secondary-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.gite-detail__photo-placeholder {
+    min-height: 125px;
+    display: grid;
+    place-items: center;
+    padding: 15px;
+    background: #ded8c9;
+    color: var(--green-dark);
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+
+/* CONTENU DES GITES */
+
+.gite-detail__content {
+    padding: 5px 0;
+}
+
+.gite-detail__content .eyebrow {
+    margin-bottom: 12px;
+}
+
+.gite-detail__content h3 {
+    font-size: 2.7rem;
+    color: var(--green-dark);
+    margin-bottom: 18px;
+}
+
+.gite-detail__description {
+    color: var(--text-light);
+    font-size: 1.05rem;
+    margin-bottom: 25px;
+}
+
+.gite-facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.gite-facts span {
+    padding: 9px 13px;
+    background: var(--beige);
+    color: var(--green-dark);
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.gite-detail__content h4 {
+    color: var(--green-dark);
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.gite-features {
+    list-style: none;
+    border-top: 1px solid #dcd6c9;
+}
+
+.gite-features li {
+    position: relative;
+    padding: 12px 0 12px 24px;
+    border-bottom: 1px solid #dcd6c9;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.gite-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--green);
+    font-weight: 700;
+}
+
+
+/* ESPACES PARTAGES */
+
+.shared-spaces {
+    background: var(--cream);
+}
+
+.shared-spaces__heading {
+    max-width: 650px;
+    margin-bottom: 40px;
+}
+
+.shared-spaces__heading h2 {
+    margin-bottom: 22px;
+}
+
+.shared-spaces__heading > p {
+    color: var(--text-light);
+    font-size: 1.05rem;
+}
+
+.shared-spaces__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.shared-space {
+    padding: 30px 25px;
+    background: #eeece4;
+}
+
+.shared-space__icon {
+    color: var(--terracotta);
+    font-size: 1.7rem;
+    margin-bottom: 15px;
+}
+
+.shared-space h3 {
+    color: var(--green-dark);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.shared-space p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+
+/* PÊCHE POUR LES ENFANTS - MOBILE */
+
+.kids-fishing {
+    background: var(--cream);
+}
+
+.kids-fishing__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 35px;
+}
+
+.kids-fishing__gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.kids-fishing__image {
+    position: relative;
+    width: 100%;
+    min-height: 280px;
+    background:
+        linear-gradient(0deg, rgba(20,35,29,0.25), transparent 50%),
+        url("../assets/images/peche.jpg") center / cover no-repeat;
+}
+
+.kids-fishing__sign {
+    width: 100%;
+    min-height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: var(--beige);
+}
+
+.kids-fishing__sign img {
+    display: block;
+    width: 100%;
+    max-height: 220px;
+    object-fit: contain;
+}
+
+.kids-fishing__content {
+    padding: 5px 0;
+}
+
+.kids-fishing__content .eyebrow {
+    margin-bottom: 15px;
+}
+
+.kids-fishing__content h2 {
+    color: var(--green-dark);
+    font-size: 2.5rem;
+    margin-bottom: 22px;
+}
+
+.kids-fishing__content h2 em {
+    color: var(--terracotta);
+}
+
+.kids-fishing__content p {
+    color: var(--text-light);
+    font-size: 1rem;
+    margin-bottom: 18px;
+}
+
+.kids-fishing__note {
+    margin-top: 25px;
+    padding: 18px 20px;
+    background: var(--beige);
+    border-left: 3px solid var(--terracotta);
+    color: var(--green-dark);
+    font-size: 0.9rem;
+}
+
+
+/* TARIFS */
+
+.gites-prices {
+    background: #eeece4;
+}
+
+.price-block {
+    margin-top: 40px;
+}
+
+.price-block h3 {
+    color: var(--green-dark);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.price-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    background: var(--cream);
+}
+
+.price-table {
+    width: 100%;
+    min-width: 540px;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.price-table th,
+.price-table td {
+    padding: 16px 14px;
+    border-bottom: 1px solid var(--beige);
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+.price-table thead {
+    background: var(--green-dark);
+    color: white;
+}
+
+.price-table thead th {
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.price-table tbody th {
+    color: var(--green-dark);
+    font-weight: 600;
+}
+
+.price-table td {
+    color: var(--text-light);
+}
+
+.prices-note {
+    margin-top: 25px;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+
+/* INFORMATIONS PRATIQUES */
+
+.practical-info {
+    background: var(--cream);
+}
+
+.practical-info__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-top: 35px;
+}
+
+.practical-info__item {
+    padding: 25px 0;
+    border-bottom: 1px solid var(--beige);
+}
+
+.practical-info__item h3 {
+    color: var(--green-dark);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.practical-info__item p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+
+/* RESERVATION */
+
+.gites-reservation {
+    background:
+        linear-gradient(
+            rgba(31,49,39,0.9),
+            rgba(31,49,39,0.9)
+        ),
+        url("../assets/images/hero.JPG") center / cover;
+    color: white;
+    text-align: center;
+}
+
+.gites-reservation__inner {
+    max-width: 760px;
+    margin-inline: auto;
+}
+
+.gites-reservation .eyebrow {
+    color: #d5c6a9;
+}
+
+.gites-reservation h2 {
+    color: white;
+    margin-bottom: 25px;
+}
+
+.gites-reservation h2 em {
+    color: #d7b79a;
+}
+
+.gites-reservation__inner > p {
+    max-width: 520px;
+    margin: 0 auto 30px;
+    color: rgba(255,255,255,0.75);
+}
+
+.gites-reservation__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+}
+
+.gites-reservation__email {
+    color: white;
+    border-bottom: 1px solid var(--terracotta);
+    padding-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+
+
+
+
+/* =========================================
+   VIA FERRATA - MOBILE
+========================================= */
+
+/* HERO */
+
+.ferrata-hero {
+    position: relative;
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    background: var(--green-dark);
+    overflow: hidden;
+}
+
+.ferrata-hero__image {
+    position: absolute;
+    inset: 0;
+}
+
+.ferrata-hero__image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(20,35,29,0.88),
+        rgba(20,35,29,0.35)
+    );
+}
+
+.ferrata-hero__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.ferrata-hero__content {
+    position: relative;
+    z-index: 2;
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.ferrata-hero .eyebrow {
+    color: #e5c4a4;
+}
+
+.ferrata-hero h1 {
+    max-width: 650px;
+    font-size: clamp(3rem, 11vw, 4.5rem);
+    line-height: 1.05;
+    margin-bottom: 25px;
+}
+
+.ferrata-hero h1 em {
+    color: #e5c4a4;
+}
+
+.ferrata-hero__content > p {
+    max-width: 470px;
+    color: rgba(255,255,255,0.82);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+
+/* INTRODUCTION */
+
+.ferrata-intro {
+    background: var(--cream);
+}
+
+.ferrata-intro__inner {
+    max-width: 800px;
+    margin-inline: auto;
+    text-align: center;
+}
+
+.ferrata-intro h2 {
+    color: var(--green-dark);
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+}
+
+.ferrata-intro h2 em {
+    color: var(--terracotta);
+}
+
+.ferrata-intro p {
+    color: var(--text-light);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 18px;
+}
+
+
+/* GENERAL SECTION HEADINGS */
+
+.ferrata-section-heading {
+    max-width: 680px;
+    margin-bottom: 45px;
+}
+
+.ferrata-section-heading h2 {
+    color: var(--green-dark);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.ferrata-section-heading h2 em {
+    color: var(--terracotta);
+}
+
+.ferrata-section-heading > p {
+    color: var(--text-light);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+
+/* ROUTES */
+
+.ferrata-routes {
+    background: #eeece4;
+}
+
+.ferrata-route {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-bottom: 85px;
+}
+
+.ferrata-route:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ROUTE GALLERY */
+
+.ferrata-route__gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.ferrata-route__gallery figure {
+    overflow: hidden;
+    background: var(--beige);
+}
+
+.ferrata-route__main-image {
+    height: 280px;
+}
+
+.ferrata-route__main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.ferrata-route__secondary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.ferrata-route__secondary figure {
+    height: 135px;
+}
+
+.ferrata-route__secondary img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* ROUTE CONTENT */
+
+.ferrata-route__content {
+    padding: 5px 0;
+}
+
+.ferrata-route__content .eyebrow {
+    margin-bottom: 12px;
+}
+
+.ferrata-route__content h3 {
+    color: var(--green-dark);
+    font-size: 2.7rem;
+    margin-bottom: 20px;
+}
+
+.ferrata-route__content > p {
+    color: var(--text-light);
+    font-size: 1rem;
+    line-height: 1.75;
+    margin-bottom: 18px;
+}
+
+
+/* ROUTE FACTS */
+
+.ferrata-route__facts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.ferrata-route__facts > div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 18px 15px;
+    background: var(--cream);
+    border-left: 2px solid var(--terracotta);
+}
+
+.ferrata-route__facts strong {
+    color: var(--green-dark);
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+}
+
+.ferrata-route__facts span {
+    color: var(--text-light);
+    font-size: 0.75rem;
+    line-height: 1.4;
+}
+
+
+/* RENTAL SECTION */
+
+.ferrata-rental {
+    background: var(--cream);
+}
+
+.ferrata-rental__heading {
+    max-width: 700px;
+    margin-bottom: 40px;
+}
+
+.ferrata-rental__heading h2 {
+    color: var(--green-dark);
+    font-size: 2.7rem;
+    margin-bottom: 20px;
+}
+
+.ferrata-rental__heading h2 em {
+    color: var(--terracotta);
+}
+
+.ferrata-rental__heading > p {
+    color: var(--text-light);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+
+/* EQUIPMENT */
+
+.ferrata-rental__equipment {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.ferrata-equipment {
+    padding: 28px 25px;
+    background: #eeece4;
+}
+
+.ferrata-equipment__icon {
+    display: inline-block;
+    color: var(--terracotta);
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.ferrata-equipment h3 {
+    color: var(--green-dark);
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.ferrata-equipment p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+
+/* PRICES */
+
+.ferrata-prices {
+    max-width: 850px;
+    margin-inline: auto;
+}
+
+.ferrata-prices h3 {
+    color: var(--green-dark);
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+}
+
+.ferrata-price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--beige);
+}
+
+.ferrata-price-row > div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.ferrata-price-row > div strong {
+    color: var(--green-dark);
+    font-size: 0.95rem;
+}
+
+.ferrata-price-row span {
+    color: var(--text-light);
+    font-size: 0.8rem;
+}
+
+.ferrata-price-row > strong {
+    color: var(--terracotta);
+    font-family: var(--font-title);
+    font-size: 1.7rem;
+    white-space: nowrap;
+}
+
+.ferrata-prices__note {
+    margin-top: 20px;
+    color: var(--text-light);
+    font-size: 0.85rem;
+    line-height: 1.7;
+}
+
+
+/* RENTAL CTA */
+
+.ferrata-rental__cta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    margin-top: 45px;
+    padding: 30px 25px;
+    background: var(--green-dark);
+}
+
+.ferrata-rental__cta p {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+
+/* SAFETY */
+
+.ferrata-safety {
+    background: #eeece4;
+}
+
+.ferrata-safety__inner {
+    max-width: 850px;
+    margin-inline: auto;
+}
+
+.ferrata-safety h2 {
+    color: var(--green-dark);
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+}
+
+.ferrata-safety h2 em {
+    color: var(--terracotta);
+}
+
+.ferrata-safety__inner > p {
+    color: var(--text-light);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.ferrata-safety__warning {
+    padding: 25px 22px;
+    background: var(--cream);
+    border-left: 4px solid var(--terracotta);
+    margin: 30px 0;
+}
+
+.ferrata-safety__warning h3 {
+    color: var(--green-dark);
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.ferrata-safety__warning p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.75;
+    margin-bottom: 12px;
+}
+
+.ferrata-safety__note {
+    font-size: 0.9rem !important;
+}
+
+
+/* PHOTO GALLERY */
+
+.ferrata-gallery {
+    background: var(--cream);
+}
+
+.ferrata-gallery__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.ferrata-gallery__grid figure {
+    height: 180px;
+    overflow: hidden;
+    background: var(--beige);
+}
+
+.ferrata-gallery__grid figure:first-child {
+    grid-column: span 2;
+    height: 250px;
+}
+
+.ferrata-gallery__grid img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.ferrata-gallery__grid figure:hover img {
+    transform: scale(1.04);
+}
+
+.ferrata-gallery__video {
+    margin-top: 25px;
+}
+
+.ferrata-gallery__video a {
+    display: inline-block;
+    color: var(--green-dark);
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid var(--terracotta);
+    padding-bottom: 5px;
+}
+
+
+/* FINAL CONTACT */
+
+.ferrata-contact {
+    background:
+        linear-gradient(
+            rgba(31,49,39,0.9),
+            rgba(31,49,39,0.9)
+        ),
+        url("../assets/images/ferrata-hero.jpg") center / cover no-repeat;
+    color: var(--white);
+    text-align: center;
+}
+
+.ferrata-contact__inner {
+    max-width: 750px;
+    margin-inline: auto;
+}
+
+.ferrata-contact .eyebrow {
+    color: #d5c6a9;
+}
+
+.ferrata-contact h2 {
+    color: var(--white);
+    font-size: 2.5rem;
+    margin-bottom: 22px;
+}
+
+.ferrata-contact h2 em {
+    color: #d7b79a;
+}
+
+.ferrata-contact__inner > p {
+    max-width: 520px;
+    margin: 0 auto 30px;
+    color: rgba(255,255,255,0.75);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.ferrata-contact .btn {
+    margin-bottom: 20px;
+}
+
+.ferrata-contact__email {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    color: var(--white);
+    font-size: 0.9rem;
+    text-decoration: none;
+    border-bottom: 1px solid var(--terracotta);
+    padding-bottom: 5px;
+}
+
+
+
+
+
+/* =========================================
+   PATRIMOINE - MOBILE
+========================================= */
+
+/* HERO */
+
+.patrimoine-hero {
+    position: relative;
+    min-height: 620px;
+    height: 85vh;
+    max-height: 850px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    color: var(--white);
+}
+
+.patrimoine-hero__image {
+    position: absolute;
+    inset: 0;
+}
+
+.patrimoine-hero__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.patrimoine-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(24, 39, 31, 0.75),
+            rgba(24, 39, 31, 0.15)
+        ),
+        linear-gradient(
+            0deg,
+            rgba(24, 39, 31, 0.35),
+            transparent 60%
+        );
+}
+
+.patrimoine-hero__content {
+    position: relative;
+    z-index: 2;
+    padding-top: 80px;
+    padding-bottom: 60px;
+}
+
+.patrimoine-hero__eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    color: rgba(255,255,255,0.8);
+}
+
+.patrimoine-hero h1 {
+    font-family: var(--font-title);
+    font-size: clamp(3rem, 12vw, 4.5rem);
+    font-weight: 400;
+    line-height: 1.08;
+    margin-bottom: 25px;
+}
+
+.patrimoine-hero h1 em {
+    color: #d7c3a2;
+    font-weight: 400;
+}
+
+.patrimoine-hero__content > p {
+    max-width: 480px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.8;
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+}
+
+
+/* INTRO */
+
+.patrimoine-intro {
+    text-align: center;
+    background: var(--cream);
+}
+
+.patrimoine-intro__inner {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.patrimoine-intro .section-title {
+    margin: 20px 0;
+}
+
+.patrimoine-intro p {
+    color: var(--text-light);
+    line-height: 1.9;
+    font-size: 0.95rem;
+}
+
+
+/* TITRES DES SECTIONS */
+
+.patrimoine-section-heading {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 45px;
+}
+
+.patrimoine-section-heading .section-title {
+    margin: 18px 0;
+}
+
+.patrimoine-section-heading > p {
+    color: var(--text-light);
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+
+
+/* PATRIMOINE LOCAL */
+
+.patrimoine-local {
+    background: var(--white);
+}
+
+.patrimoine-local__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+
+/* CARDS */
+
+.patrimoine-card {
+    background: var(--cream);
+    overflow: hidden;
+}
+
+.patrimoine-card__image {
+    width: 100%;
+    height: 260px;
+    overflow: hidden;
+}
+
+.patrimoine-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.patrimoine-card__content {
+    padding: 28px 25px 32px;
+}
+
+.patrimoine-card__category {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--green);
+    margin-bottom: 14px;
+}
+
+.patrimoine-card__content h3 {
+    font-family: var(--font-title);
+    font-size: 1.7rem;
+    font-weight: 400;
+    color: var(--green-dark);
+    line-height: 1.3;
+    margin-bottom: 15px;
+}
+
+.patrimoine-card__content p {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--text-light);
+}
+
+.patrimoine-card__content p + p {
+    margin-top: 12px;
+}
+
+
+/* EXTRA LOCAL */
+
+.patrimoine-local__extra {
+    margin-top: 50px;
+    padding: 35px 28px;
+    background: var(--beige);
+}
+
+.patrimoine-local__extra-content h3 {
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--green-dark);
+    margin: 18px 0;
+}
+
+.patrimoine-local__extra-content p {
+    color: var(--text-light);
+    line-height: 1.8;
+    font-size: 0.9rem;
+    margin-bottom: 22px;
+}
+
+
+/* CHATEAUX CATHARES */
+
+.patrimoine-cathare {
+    background: var(--cream);
+}
+
+.patrimoine-cathare__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.patrimoine-castle {
+    background: var(--white);
+}
+
+.patrimoine-castle__image {
+    height: 280px;
+    overflow: hidden;
+}
+
+.patrimoine-castle__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.patrimoine-castle__content {
+    padding: 28px 25px 32px;
+}
+
+.patrimoine-castle__content h3 {
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--green-dark);
+    margin-bottom: 15px;
+}
+
+.patrimoine-castle__content p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+.patrimoine-cathare__note {
+    margin-top: 40px;
+    padding: 30px;
+    border-left: 3px solid var(--terracotta);
+    background: var(--white);
+}
+
+.patrimoine-cathare__note p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text);
+    margin-bottom: 18px;
+}
+
+.patrimoine-cathare__note a {
+    font-size:1.2rem;
+}
+
+
+/* PREHISTOIRE */
+
+.patrimoine-prehistoire {
+    background: var(--white);
+}
+
+.patrimoine-prehistoire__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 35px;
+}
+
+.patrimoine-history-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--cream);
+    overflow: hidden;
+}
+
+.patrimoine-history-card__image {
+    height: 260px;
+    overflow: hidden;
+}
+
+.patrimoine-history-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.patrimoine-history-card__content {
+    padding: 28px 25px 32px;
+}
+
+.patrimoine-history-card__content h3 {
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--green-dark);
+    margin-bottom: 15px;
+}
+
+.patrimoine-history-card__content p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+
+/* ARCHITECTURE */
+
+.patrimoine-architecture {
+    background: var(--cream);
+}
+
+.patrimoine-architecture__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 35px;
+    align-items: center;
+}
+
+.patrimoine-architecture__image {
+    height: 320px;
+    overflow: hidden;
+}
+
+.patrimoine-architecture__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.patrimoine-architecture__content .section-title {
+    margin: 18px 0;
+}
+
+.patrimoine-architecture__content p {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--text-light);
+}
+
+.patrimoine-architecture__content p + p {
+    margin-top: 15px;
+}
+
+
+/* GALERIE ARCHITECTURE */
+
+.patrimoine-architecture__gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 45px;
+}
+
+.patrimoine-architecture__gallery figure {
+    margin: 0;
+    overflow: hidden;
+}
+
+.patrimoine-architecture__gallery img {
+    display: block;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.patrimoine-architecture__gallery figcaption {
+    background: var(--white);
+    color: var(--text-light);
+    padding: 15px 18px;
+    font-size: 0.85rem;
+}
+
+
+/* TRAIN TOURISTIQUE */
+
+.patrimoine-train {
+    background: var(--white);
+}
+
+.patrimoine-train__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 35px;
+    align-items: center;
+}
+
+.patrimoine-train__image {
+    height: 300px;
+    overflow: hidden;
+}
+
+.patrimoine-train__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.patrimoine-train__content .section-title {
+    margin: 18px 0;
+}
+
+.patrimoine-train__content p {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--text-light);
+    margin-bottom: 25px;
+}
+
+.patrimoine-train__content a {
+    font-size: 1.2rem
+}
+
+
+/* CTA FINAL */
+
+.patrimoine-contact {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    color: var(--white);
+    background:
+        linear-gradient(
+            rgba(38,59,50,0.92),
+            rgba(38,59,50,0.92)
+        ),
+        url("../assets/images/patrimoine-hero.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.patrimoine-contact__content {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.patrimoine-contact .section-label {
+    color: rgba(255,255,255,0.65);
+}
+
+.patrimoine-contact .section-title {
+    color: var(--white);
+    margin: 20px 0;
+}
+
+.patrimoine-contact .section-title em {
+    color: #d7c3a2;
+}
+
+.patrimoine-contact__content > p {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+
+.patrimoine-contact__buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+
+
+
+
+/* =========================================
+   ACTIVITES SPORTIVES - MOBILE
+========================================= */
+
+/* HERO */
+
+.activites-hero {
+    position: relative;
+    min-height: 620px;
+    height: 85vh;
+    max-height: 850px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    color: var(--white);
+}
+
+.activites-hero__image {
+    position: absolute;
+    inset: 0;
+}
+
+.activites-hero__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.activites-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(24, 39, 31, 0.78),
+            rgba(24, 39, 31, 0.15)
+        ),
+        linear-gradient(
+            0deg,
+            rgba(24, 39, 31, 0.35),
+            transparent 60%
+        );
+}
+
+.activites-hero__content {
+    position: relative;
+    z-index: 2;
+    padding-top: 80px;
+    padding-bottom: 60px;
+}
+
+.activites-hero__eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    color: rgba(255,255,255,0.8);
+}
+
+.activites-hero h1 {
+    font-family: var(--font-title);
+    font-size: clamp(3rem, 12vw, 4.5rem);
+    font-weight: 400;
+    line-height: 1.08;
+    margin-bottom: 25px;
+}
+
+.activites-hero h1 em {
+    color: #d7c3a2;
+    font-weight: 400;
+}
+
+.activites-hero__content > p {
+    max-width: 480px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.8;
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+}
+
+
+/* INTRO */
+
+.activites-intro {
+    text-align: center;
+    background: var(--cream);
+}
+
+.activites-intro__inner {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.activites-intro .section-title {
+    margin: 20px 0;
+}
+
+.activites-intro p {
+    color: var(--text-light);
+    line-height: 1.9;
+    font-size: 0.95rem;
+}
+
+
+/* TITRES DES SECTIONS */
+
+.activites-section__heading {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 45px;
+}
+
+.activites-section__heading .section-title {
+    margin: 18px 0;
+}
+
+.activites-section__heading > p {
+    color: var(--text-light);
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+
+
+/* GRILLE GENERALE */
+
+.activites-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+
+/* CARTES ACTIVITES */
+
+.activite-card {
+    background: var(--cream);
+    overflow: hidden;
+}
+
+.activite-card__image {
+    height: 260px;
+    overflow: hidden;
+}
+
+.activite-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.activite-card__content {
+    padding: 28px 25px 32px;
+}
+
+.activite-card__category {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--green);
+    margin-bottom: 14px;
+}
+
+.activite-card__content h3 {
+    font-family: var(--font-title);
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: var(--green-dark);
+    line-height: 1.3;
+    margin-bottom: 15px;
+}
+
+.activite-card__content p {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--text-light);
+}
+
+.activite-card__content .text-link {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+
+/* SECTIONS */
+
+.activites-terrestres {
+    background: var(--white);
+}
+
+.activites-aventure {
+    background: var(--cream);
+}
+
+.activites-aquatiques {
+    background: var(--white);
+}
+
+
+/* AVENTURE */
+
+.activites-aventure__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.activite-card--featured {
+    background: var(--white);
+}
+
+.activite-card--featured .activite-card__image {
+    height: 280px;
+}
+
+
+/* VELO RAIL */
+
+.activites-velorail {
+    background: var(--beige);
+}
+
+.activites-velorail__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 35px;
+    align-items: center;
+}
+
+.activites-velorail__image {
+    height: 300px;
+    overflow: hidden;
+}
+
+.activites-velorail__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.activites-velorail__content .section-title {
+    margin: 18px 0;
+}
+
+.activites-velorail__content p {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--text-light);
+    margin-bottom: 25px;
+}
+
+
+/* ESCAPADES */
+
+.activites-escapades {
+    background: var(--cream);
+}
+
+.activites-escapades__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.activite-escapade {
+    background: var(--white);
+    overflow: hidden;
+}
+
+.activite-escapade__image {
+    height: 270px;
+    overflow: hidden;
+}
+
+.activite-escapade__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.activite-escapade__content {
+    padding: 28px 25px 32px;
+}
+
+.activite-escapade__content h3 {
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--green-dark);
+    margin-bottom: 15px;
+}
+
+.activite-escapade__content p {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--text-light);
+}
+
+
+/* CTA FINAL */
+
+.activites-contact {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    color: var(--white);
+    background:
+        linear-gradient(
+            rgba(38,59,50,0.92),
+            rgba(38,59,50,0.92)
+        ),
+        url("../assets/images/activites-hero.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.activites-contact__content {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.activites-contact .section-label {
+    color: rgba(255,255,255,0.65);
+}
+
+.activites-contact .section-title {
+    color: var(--white);
+    margin: 20px 0;
+}
+
+.activites-contact .section-title em {
+    color: #d7c3a2;
+}
+
+.activites-contact__content > p {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+
+.activites-contact__buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+
+/* =========================================
+   11. DESKTOP
+========================================= */
+
+@media (min-width: 768px) {
+
+    /* GENERAL */
+
+    .section-padding {
+        padding: 110px 0;
+    }
+
+
+    /* NAVBAR */
+
+    .navbar {
+        min-height: 80px;
+    }
+
+
+    .logo img {
+        width: 50px;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    .nav-links {
+        position: static;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 34px;
+        padding: 0;
+        border: 0;
+        background: transparent;
+    }
+
+    .nav-links li a {
+        padding: 0;
+        font-size: 0.84rem;
+    }
+
+    .nav-links .nav-contact {
+        margin-top: 0;
+        padding: 13px 20px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        min-height: 690px;
+        height: min(78vh, 850px);
+        background-position: center 55%;
+    }
+
+    .hero h1 {
+        font-size: clamp(3.5rem, 7.5vw, 6.7rem);
+        letter-spacing: -2px;
+    }
+
+    .hero__content > p {
+        font-size: 1.05rem;
+    }
+
+    .hero__actions {
+        flex-direction: row;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .hero__bottom {
+        width: min(90%, var(--container));
+        font-size: 0.65rem;
+        letter-spacing: 1.8px;
+    }
+
+
+    /* INTRODUCTION */
+
+    .intro__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 100px;
+    }
+
+    .intro__heading h2 {
+        font-size: clamp(2.6rem, 5vw, 4.2rem);
+    }
+
+
+    /* HEBERGEMENTS */
+
+    .section-heading {
+        flex-direction: row;
+        align-items: end;
+        gap: 50px;
+        margin-bottom: 55px;
+    }
+
+    .accommodation-card--all {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        min-height: 420px;
+    }
+
+    .accommodation-card--all .accommodation-card__image {
+        height: 100%;
+        min-height: 420px;
+    }
+
+    .accommodation-card--all .accommodation-card__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 40px;
+    }
+
+
+    /* ACTIVITES */
+
+    
+/* ACTIVITES - DESKTOP */
+
+    .activities__intro {
+        margin-bottom: 55px;
+    }
+
+    .activities-grid {
+        grid-template-columns: 1.2fr 1fr 1fr;
+        gap: 22px;
+    }
+
+    .activity-card__image {
+        height: 270px;
+    }
+
+    .activity-card--large .activity-card__image {
+        height: 340px;
+    }
+
+    /* Efecto zoom */
+
+    .activity-card:hover .activity-card__image::before {
+        transform: scale(1.10);
+    }
+
+
+
+    /* REGION */
+
+    .region__grid {
+        grid-template-columns: 1fr 0.85fr;
+        gap: 100px;
+    }
+
+    .region__image {
+        min-height: 510px;
+    }
+
+
+    /* FOOTER */
+
+    .footer {
+        padding: 85px 0 30px;
+    }
+
+    .footer__main {
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 60px;
+    }
+
+    .footer__brand {
+        grid-column: auto;
+    }
+
+
+    .footer__grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 60px;
+        align-items: start;
+    }
+
+    .footer__bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+        margin-top: 65px;
+    }
+  
+
+
+
+    /* =====================================
+       PAGE GITES - DESKTOP
+    ====================================== */
+
+    .gites-hero {
+        min-height: 680px;
+        height: 78vh;
+        background-position: center 55%;
+    }
+
+    .gites-hero h1 {
+        font-size: clamp(4rem, 7vw, 6.5rem);
+    }
+
+    .gites-hero__content > p {
+        font-size: 1.1rem;
+    }
+
+
+    /* INTRODUCTION */
+
+    .gites-intro {
+        padding-top: 120px;
+        padding-bottom: 120px;
+    }
+
+    .gites-intro p {
+        font-size: 1.1rem;
+    }
+
+
+    /* GITES */
+
+    .gite-detail {
+        grid-template-columns: 1.1fr 0.9fr;
+        align-items: center;
+        gap: 75px;
+        margin-bottom: 130px;
+    }
+
+    .gite-detail--reverse {
+        grid-template-columns: 0.9fr 1.1fr;
+    }
+
+    .gite-detail--reverse .gite-detail__gallery {
+        order: 2;
+    }
+
+    .gite-detail--reverse .gite-detail__content {
+        order: 1;
+    }
+
+    .gite-detail__main-image {
+        min-height: 420px;
+    }
+
+    .gite-detail__photo-placeholder {
+        min-height: 180px;
+    }
+
+    .gite-detail__content h3 {
+        font-size: 3.3rem;
+    }
+
+
+    /* ESPACES PARTAGES */
+
+    .shared-spaces__grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+    }
+
+    .shared-space {
+        padding: 40px 30px;
+    }
+
+
+
+    /* PÊCHE POUR LES ENFANTS - DESKTOP */
+
+    .kids-fishing__grid {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 80px;
+    }
+
+    .kids-fishing__gallery {
+        grid-template-columns: 1fr 0.65fr;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .kids-fishing__image {
+        min-height: 450px;
+    }
+
+    .kids-fishing__sign {
+        min-height: 220px;
+    }
+
+    .kids-fishing__sign img {
+        max-height: 260px;
+    }
+
+    .kids-fishing__content h2 {
+        font-size: 3.3rem;
+    }
+
+    .kids-fishing__content p {
+        font-size: 1.05rem;
+    }
+
+
+
+    /* TARIFS */
+
+    .price-block {
+        margin-top: 55px;
+    }
+
+    .price-table th,
+    .price-table td {
+        padding: 19px 22px;
+        font-size: 0.9rem;
+    }
+
+
+    /* INFORMATIONS PRATIQUES */
+
+    .practical-info__grid {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 65px;
+    }
+
+    .practical-info__item {
+        padding: 30px 0;
+    }
+
+
+    /* RESERVATION */
+
+    .gites-reservation {
+        padding-top: 120px;
+        padding-bottom: 120px;
+    }
+
+    .gites-reservation__actions {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+
+
+
+    /* =========================================
+    VIA FERRATA - DESKTOP
+    ========================================= */
+
+    /* HERO */
+
+    .ferrata-hero {
+        min-height: 700px;
+        height: 82vh;
+    }
+
+    .ferrata-hero__image img {
+        object-position: center 55%;
+    }
+
+    .ferrata-hero__content {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    .ferrata-hero h1 {
+        font-size: clamp(4rem, 7vw, 6.5rem);
+    }
+
+    .ferrata-hero__content > p {
+        font-size: 1.1rem;
+    }
+
+
+    /* INTRODUCTION */
+
+    .ferrata-intro {
+        padding-top: 120px;
+        padding-bottom: 120px;
+    }
+
+    .ferrata-intro h2 {
+        font-size: 3.3rem;
+    }
+
+    .ferrata-intro p {
+        font-size: 1.05rem;
+    }
+
+
+    /* SECTION HEADINGS */
+
+    .ferrata-section-heading {
+        margin-bottom: 65px;
+    }
+
+    .ferrata-section-heading h2 {
+        font-size: 3.3rem;
+    }
+
+
+    /* ROUTES */
+
+    .ferrata-route {
+        grid-template-columns: 1.1fr 0.9fr;
+        align-items: center;
+        gap: 75px;
+        margin-bottom: 130px;
+    }
+
+    .ferrata-route--reverse {
+        grid-template-columns: 0.9fr 1.1fr;
+    }
+
+    .ferrata-route--reverse .ferrata-route__gallery {
+        order: 2;
+    }
+
+    .ferrata-route--reverse .ferrata-route__content {
+        order: 1;
+    }
+
+
+    /* ROUTE GALLERY */
+
+    .ferrata-route__main-image {
+        height: 420px;
+    }
+
+    .ferrata-route__secondary figure {
+        height: 190px;
+    }
+
+
+    /* ROUTE CONTENT */
+
+    .ferrata-route__content h3 {
+        font-size: 3.3rem;
+    }
+
+    .ferrata-route__content > p {
+        font-size: 1.05rem;
+    }
+
+
+    /* ROUTE FACTS */
+
+    .ferrata-route__facts {
+        gap: 12px;
+    }
+
+    .ferrata-route__facts > div {
+        padding: 20px 17px;
+    }
+
+    .ferrata-route__facts strong {
+        font-size: 1.7rem;
+    }
+
+
+    /* RENTAL */
+
+    .ferrata-rental__heading {
+        margin-bottom: 55px;
+    }
+
+    .ferrata-rental__heading h2 {
+        font-size: 3.3rem;
+    }
+
+    .ferrata-rental__heading > p {
+        font-size: 1.05rem;
+    }
+
+
+    /* EQUIPMENT */
+
+    .ferrata-rental__equipment {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+        margin-bottom: 70px;
+    }
+
+    .ferrata-equipment {
+        padding: 40px 30px;
+    }
+
+
+    /* PRICES */
+
+    .ferrata-prices h3 {
+        font-size: 2rem;
+    }
+
+    .ferrata-price-row {
+        padding: 23px 10px;
+    }
+
+    .ferrata-price-row > div strong {
+        font-size: 1rem;
+    }
+
+    .ferrata-price-row > strong {
+        font-size: 1.9rem;
+    }
+
+
+    /* RENTAL CTA */
+
+    .ferrata-rental__cta {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 35px 40px;
+        margin-top: 55px;
+    }
+
+
+    /* SAFETY */
+
+    .ferrata-safety__inner {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .ferrata-safety h2 {
+        font-size: 3.3rem;
+    }
+
+    .ferrata-safety__warning {
+        padding: 35px 40px;
+    }
+
+    .ferrata-safety__warning p {
+        font-size: 0.95rem;
+    }
+
+
+    /* PHOTO GALLERY */
+
+    .ferrata-gallery__grid {
+        grid-template-columns: 1.4fr 1fr 1fr;
+        gap: 18px;
+    }
+
+    .ferrata-gallery__grid figure,
+    .ferrata-gallery__grid figure:first-child {
+        grid-column: auto;
+        height: 320px;
+    }
+
+    .ferrata-gallery__video {
+        margin-top: 35px;
+    }
+
+
+    /* FINAL CONTACT */
+
+    .ferrata-contact {
+        padding-top: 120px;
+        padding-bottom: 120px;
+    }
+
+    .ferrata-contact h2 {
+        font-size: 3.5rem;
+    }
+
+    .ferrata-contact__inner > p {
+        font-size: 1.05rem;
+    }
+
+
+
+
+
+    /* =========================================
+    PATRIMOINE - DESKTOP
+    ========================================= */
+
+    /* HERO */
+
+    .patrimoine-hero {
+        min-height: 700px;
+        height: 85vh;
+    }
+
+    .patrimoine-hero__content {
+        padding-top: 100px;
+    }
+
+    .patrimoine-hero h1 {
+        font-size: 6rem;
+        margin-bottom: 30px;
+    }
+
+    .patrimoine-hero__content > p {
+        font-size: 1.05rem;
+    }
+
+
+    /* INTRO */
+
+    .patrimoine-intro__inner {
+        max-width: 850px;
+    }
+
+
+    /* TITRES */
+
+    .patrimoine-section-heading {
+        margin-bottom: 65px;
+    }
+
+    .patrimoine-section-heading > p {
+        font-size: 1rem;
+    }
+
+
+    /* PATRIMOINE LOCAL */
+
+    .patrimoine-local__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .patrimoine-card--large {
+        grid-column: span 2;
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        align-items: stretch;
+    }
+
+    .patrimoine-card--large .patrimoine-card__image {
+        height: 100%;
+        min-height: 350px;
+    }
+
+    .patrimoine-card--large .patrimoine-card__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 45px;
+    }
+
+    .patrimoine-card:not(.patrimoine-card--large) .patrimoine-card__image {
+        height: 300px;
+    }
+
+    .patrimoine-card__content h3 {
+        font-size: 2rem;
+    }
+
+    .patrimoine-card__content p {
+        font-size: 0.95rem;
+    }
+
+
+    /* EXTRA LOCAL */
+
+    .patrimoine-local__extra {
+        margin-top: 70px;
+        padding: 55px 65px;
+    }
+
+    .patrimoine-local__extra-content {
+        max-width: 750px;
+    }
+
+    .patrimoine-local__extra-content h3 {
+        font-size: 2.4rem;
+    }
+
+    .patrimoine-local__extra-content p {
+        font-size: 1rem;
+    }
+
+
+    /* CHATEAUX */
+
+    .patrimoine-cathare__grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+
+    .patrimoine-castle__image {
+        height: 300px;
+    }
+
+    .patrimoine-castle__content {
+        padding: 30px;
+    }
+
+    .patrimoine-castle__content h3 {
+        font-size: 2rem;
+    }
+
+    .patrimoine-castle__content p {
+        font-size: 0.95rem;
+    }
+
+    .patrimoine-cathare__note {
+        max-width: 900px;
+        margin: 55px auto 0;
+        padding: 35px 45px;
+    }
+
+
+    /* PREHISTOIRE */
+
+    .patrimoine-prehistoire__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 35px;
+    }
+
+    .patrimoine-history-card__image {
+        height: 350px;
+    }
+
+    .patrimoine-history-card__content {
+        padding: 35px;
+    }
+
+    .patrimoine-history-card__content h3 {
+        font-size: 2.1rem;
+    }
+
+    .patrimoine-history-card__content p {
+        font-size: 0.95rem;
+    }
+
+
+    /* ARCHITECTURE */
+
+    .patrimoine-architecture__grid {
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 75px;
+    }
+
+    .patrimoine-architecture__image {
+        height: 500px;
+    }
+
+    .patrimoine-architecture__content {
+        padding-right: 20px;
+    }
+
+    .patrimoine-architecture__content p {
+        font-size: 1rem;
+    }
+
+    .patrimoine-architecture__gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        margin-top: 65px;
+    }
+
+    .patrimoine-architecture__gallery img {
+        height: 350px;
+    }
+
+
+    /* TRAIN */
+
+    .patrimoine-train__grid {
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 75px;
+    }
+
+    .patrimoine-train__image {
+        height: 480px;
+    }
+
+    .patrimoine-train__content {
+        padding-right: 20px;
+    }
+
+    .patrimoine-train__content p {
+        font-size: 1rem;
+    }
+
+
+    /* CTA */
+
+    .patrimoine-contact__buttons {
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+    }
+
+
+
+
+
+    /* =========================================
+    ACTIVITES SPORTIVES - DESKTOP
+    ========================================= */
+
+    /* HERO */
+
+    .activites-hero {
+        min-height: 700px;
+        height: 85vh;
+    }
+
+    .activites-hero__content {
+        padding-top: 100px;
+    }
+
+    .activites-hero h1 {
+        font-size: 6rem;
+        margin-bottom: 30px;
+    }
+
+    .activites-hero__content > p {
+        font-size: 1.05rem;
+    }
+
+
+    /* INTRO */
+
+    .activites-intro__inner {
+        max-width: 850px;
+    }
+
+
+    /* TITRES */
+
+    .activites-section__heading {
+        margin-bottom: 65px;
+    }
+
+    .activites-section__heading > p {
+        font-size: 1rem;
+    }
+
+
+    /* ACTIVITES TERRESTRES */
+
+    .activites-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .activite-card__image {
+        height: 300px;
+    }
+
+    .activite-card__content {
+        padding: 32px;
+    }
+
+    .activite-card__content h3 {
+        font-size: 2rem;
+    }
+
+    .activite-card__content p {
+        font-size: 0.95rem;
+    }
+
+
+    /* AVENTURE */
+
+    .activites-aventure__grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+
+    .activite-card--featured .activite-card__image {
+        height: 330px;
+    }
+
+    .activite-card--featured .activite-card__content {
+        padding: 30px;
+    }
+
+
+    /* AQUATIQUES */
+
+    .activites-aquatiques .activites-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+
+
+    /* VELO RAIL */
+
+    .activites-velorail__grid {
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 75px;
+    }
+
+    .activites-velorail__image {
+        height: 480px;
+    }
+
+    .activites-velorail__content {
+        padding-right: 20px;
+    }
+
+    .activites-velorail__content p {
+        font-size: 1rem;
+    }
+
+
+    /* ESCAPADES */
+
+    .activites-escapades__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 35px;
+    }
+
+    .activite-escapade__image {
+        height: 350px;
+    }
+
+    .activite-escapade__content {
+        padding: 35px;
+    }
+
+    .activite-escapade__content h3 {
+        font-size: 2.1rem;
+    }
+
+    .activite-escapade__content p {
+        font-size: 0.95rem;
+    }
+
+
+    /* CTA */
+
+    .activites-contact__buttons {
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+    }
+
+
+}
